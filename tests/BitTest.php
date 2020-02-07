@@ -12,7 +12,7 @@ final class BitTest extends TestBase
      */
     public function testConstruct($init, int $expectedInt, string $expectedStr)
     {
-        $bit = new Bit($init);
+        $bit = new UnlimitedBit($init);
         $this->assertSame($expectedInt, $bit->asInt());
         $this->assertSame($expectedStr, $bit->asStr());
     }
@@ -53,7 +53,7 @@ final class BitTest extends TestBase
      */
     public function testOn(int $init, $onDigits, int $expectedInt, string $expectedStr)
     {
-        $bit = new Bit($init);
+        $bit = new UnlimitedBit($init);
         $bit = $bit->on($onDigits);
         $this->assertSame($expectedInt, $bit->asInt());
         $this->assertSame($expectedStr, $bit->asStr());
@@ -94,7 +94,7 @@ final class BitTest extends TestBase
      */
     public function testOff(int $init, $onDigits, int $expectedInt, string $expectedStr)
     {
-        $bit = new Bit($init);
+        $bit = new UnlimitedBit($init);
         $bit = $bit->off($onDigits);
         $this->assertSame($expectedInt, $bit->asInt());
         $this->assertSame($expectedStr, $bit->asStr());
@@ -135,7 +135,7 @@ final class BitTest extends TestBase
      */
     public function testAnd($init, $other, int $expectedInt, string $expectedStr)
     {
-        $bit = new Bit($init);
+        $bit = new UnlimitedBit($init);
         $bit = $bit->and($other);
         $this->assertSame($expectedInt, $bit->asInt());
         $this->assertSame($expectedStr, $bit->asStr());
@@ -158,7 +158,7 @@ final class BitTest extends TestBase
             ],
             'Other is Bit object.' => [
                 'init' => '0110',
-                'other' => new Bit('1010'),
+                'other' => new UnlimitedBit('1010'),
                 'expectedInt' => 2,
                 'expectedStr' => '10',
             ],
@@ -170,7 +170,7 @@ final class BitTest extends TestBase
      */
     public function testOr($init, $other, int $expectedInt, string $expectedStr)
     {
-        $bit = new Bit($init);
+        $bit = new UnlimitedBit($init);
         $bit = $bit->or($other);
         $this->assertSame($expectedInt, $bit->asInt());
         $this->assertSame($expectedStr, $bit->asStr());
@@ -193,7 +193,7 @@ final class BitTest extends TestBase
             ],
             'Other is Bit object.' => [
                 'init' => '0110',
-                'other' => new Bit('1010'),
+                'other' => new UnlimitedBit('1010'),
                 'expectedInt' => 14,
                 'expectedStr' => '1110',
             ],

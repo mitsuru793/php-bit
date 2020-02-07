@@ -3,94 +3,33 @@ declare(strict_types=1);
 
 namespace Php;
 
-class Bit
+interface Bit
 {
-    /** Decimal number for bit flags. */
-    private int $value;
+    public function asInt(): int;
 
-    /**
-     * @param int|string
-     */
-    public function __construct($value = 0)
-    {
-        if (is_string($value)) {
-            $value = bindec($value);
-        }
-        $this->value = $value;
-    }
-
-    public function asInt(): int
-    {
-        return $this->value;
-    }
-
-    public function asStr(): string
-    {
-        return decbin($this->value);
-    }
+    public function asStr(): string;
 
     /**
      * @param int|int[] $digits
+     * @return static
      */
-    public function on($digits): self
-    {
-        if (is_int($digits)) {
-            $digits = [$digits];
-        }
-
-        $new = clone $this;
-        foreach ($digits as $digit) {
-            $new->value |= (1 << $digit);
-        }
-        return $new;
-    }
+    public function on($digits);
 
     /**
      * @param int|int[] $digits
+     * @return static
      */
-    public function off($digits)
-    {
-        if (is_int($digits)) {
-            $digits = [$digits];
-        }
-
-        $new = clone $this;
-        foreach ($digits as $digit) {
-            $new->value &= ~(1 << $digit);
-        }
-        return $new;
-    }
+    public function off($digits);
 
     /**
      * @param int|string|static $other Not digit, but bit value. 5 is '101'
+     * @return static
      */
-    public function and($other): self
-    {
-        if (is_string($other)) {
-            $other = bindec($other);
-        } elseif ($other instanceof self) {
-            $other = $other->value;
-        }
-
-        $new = clone $this;
-        $new->value &= $other;
-        return $new;
-    }
+    public function and($other);
 
     /**
      * @param int|string|static $other Not digit, but bit value. 5 is '101'
+     * @return static
      */
-    public function or($other): self
-    {
-        if (is_string($other)) {
-            $other = bindec($other);
-        } elseif ($other instanceof self) {
-            $other = $other->value;
-        }
-
-        $new = clone $this;
-        $new->value |= $other;
-        return $new;
-    }
+    public function or($other);
 }
-
