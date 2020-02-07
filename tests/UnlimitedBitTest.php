@@ -105,25 +105,25 @@ final class UnlimitedBitTest extends TestBase
         return [
             'Argument as digit starts 0.' => [
                 'init' => 1,
-                'onDigits' => 0,
+                'offDigits' => 0,
                 'expectedInt' => 0,
                 'expectedStr' => '0',
             ],
             'Argument can be array.' => [
                 'init' => 9, // '1001'
-                'onDigits' => [0, 3],
+                'offDigits' => [0, 3],
                 'expectedInt' => 0,
                 'expectedStr' => '0',
             ],
             'Digit 0 remains.' => [
                 'init' => 9, // '1001'
-                'onDigits' => 0,
+                'offDigits' => 0,
                 'expectedInt' => 8,
                 'expectedStr' => '1000',
             ],
             'Already on flags do not change.' => [
                 'init' => 9, // '1001'
-                'onDigits' => [0, 1],
+                'offDigits' => [0, 1],
                 'expectedInt' => 8,
                 'expectedStr' => '1000',
             ],
