@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Php;
 
-final class Bit
+class Bit
 {
     /** Decimal number for bit flags. */
     private int $value;
