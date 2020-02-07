@@ -8,6 +8,47 @@ use Helper\TestBase;
 final class BitTest extends TestBase
 {
     /**
+     * @dataProvider constructProvider
+     */
+    public function testConstruct($init, int $expectedInt, string $expectedStr)
+    {
+        $bit = new Bit($init);
+        $this->assertSame($expectedInt, $bit->asInt());
+        $this->assertSame($expectedStr, $bit->asStr());
+    }
+
+    public function constructProvider()
+    {
+        return [
+            'Integer 0.' => [
+                'init' => 0,
+                'expectedInt' => 0,
+                'expectedStr' => '0',
+            ],
+            'String 0' => [
+                'init' => '0',
+                'expectedInt' => 0,
+                'expectedStr' => '0',
+            ],
+            'Complex integer' => [
+                'init' => 9,
+                'expectedInt' => 9,
+                'expectedStr' => '1001',
+            ],
+            'Complex string' => [
+                'init' => '1001',
+                'expectedInt' => 9,
+                'expectedStr' => '1001',
+            ],
+            'First 0 is ignored.' => [
+                'init' => '0010',
+                'expectedInt' => 2,
+                'expectedStr' => '10',
+            ],
+        ];
+    }
+
+    /**
      * @dataProvider onProvider
      */
     public function testOn(int $init, $onDigits, int $expectedInt, string $expectedStr)

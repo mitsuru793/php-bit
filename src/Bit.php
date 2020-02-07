@@ -8,8 +8,14 @@ final class Bit
     /** Decimal number for bit flags. */
     private int $value;
 
-    public function __construct(int $value = 0)
+    /**
+     * @param int|string
+     */
+    public function __construct($value = 0)
     {
+        if (is_string($value)) {
+            $value = bindec($value);
+        }
         $this->value = $value;
     }
 
