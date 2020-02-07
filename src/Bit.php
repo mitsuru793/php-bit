@@ -60,5 +60,19 @@ final class Bit
         }
         return $new;
     }
+
+    /**
+     * @param int|string $other Not digit, but bit value. 5 is '101'
+     */
+    public function and($other): self
+    {
+        if (is_string($other)) {
+            $other = bindec($other);
+        }
+
+        $new = clone $this;
+        $new->value &= $other;
+        return $new;
+    }
 }
 
