@@ -62,12 +62,14 @@ class Bit
     }
 
     /**
-     * @param int|string $other Not digit, but bit value. 5 is '101'
+     * @param int|string|static $other Not digit, but bit value. 5 is '101'
      */
     public function and($other): self
     {
         if (is_string($other)) {
             $other = bindec($other);
+        } elseif ($other instanceof self) {
+            $other = $other->value;
         }
 
         $new = clone $this;
@@ -76,12 +78,14 @@ class Bit
     }
 
     /**
-     * @param int|string $other Not digit, but bit value. 5 is '101'
+     * @param int|string|static $other Not digit, but bit value. 5 is '101'
      */
     public function or($other): self
     {
         if (is_string($other)) {
             $other = bindec($other);
+        } elseif ($other instanceof self) {
+            $other = $other->value;
         }
 
         $new = clone $this;

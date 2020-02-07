@@ -144,15 +144,21 @@ final class BitTest extends TestBase
     public function andProvider()
     {
         return [
-            'Other is int' => [
+            'Other is int.' => [
                 'init' => '0110',
                 'other' => 10, // 1010
                 'expectedInt' => 2,
                 'expectedStr' => '10',
             ],
-            'Other is string' => [
+            'Other is string.' => [
                 'init' => '0110',
                 'other' => '1010',
+                'expectedInt' => 2,
+                'expectedStr' => '10',
+            ],
+            'Other is Bit object.' => [
+                'init' => '0110',
+                'other' => new Bit('1010'),
                 'expectedInt' => 2,
                 'expectedStr' => '10',
             ],
@@ -182,6 +188,12 @@ final class BitTest extends TestBase
             'Other is string' => [
                 'init' => '0110',
                 'other' => '1010',
+                'expectedInt' => 14,
+                'expectedStr' => '1110',
+            ],
+            'Other is Bit object.' => [
+                'init' => '0110',
+                'other' => new Bit('1010'),
                 'expectedInt' => 14,
                 'expectedStr' => '1110',
             ],
