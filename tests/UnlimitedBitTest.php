@@ -86,6 +86,13 @@ final class UnlimitedBitTest extends TestBase
                 'expectedInt' => 11,
                 'expectedStr' => '1011',
             ],
+
+            'OnDigits are over init bit' => [
+                'init' => 1,
+                'onDigits' => 4,
+                'expectedInt' => 9,
+                'expectedStr' => '1001',
+            ],
         ];
     }
 
@@ -127,6 +134,13 @@ final class UnlimitedBitTest extends TestBase
                 'expectedInt' => 8,
                 'expectedStr' => '1000',
             ],
+
+            'OffDigits are over init bit.' => [
+                'init' => 9, // '1001'
+                'offDigits' => [1, 2, 6],
+                'expectedInt' => 8,
+                'expectedStr' => '1000',
+            ],
         ];
     }
 
@@ -162,6 +176,13 @@ final class UnlimitedBitTest extends TestBase
                 'expectedInt' => 2,
                 'expectedStr' => '10',
             ],
+
+            'Other is over init digit.' => [
+                'init' => '110',
+                'other' => new UnlimitedBit('1010'),
+                'expectedInt' => 2,
+                'expectedStr' => '10',
+            ]
         ];
     }
 
@@ -197,6 +218,13 @@ final class UnlimitedBitTest extends TestBase
                 'expectedInt' => 14,
                 'expectedStr' => '1110',
             ],
+
+            'Other is over init digit.' => [
+                'init' => '110',
+                'other' => new UnlimitedBit('1010'),
+                'expectedInt' => 14,
+                'expectedStr' => '1110',
+            ]
         ];
     }
 }
