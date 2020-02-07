@@ -158,4 +158,33 @@ final class BitTest extends TestBase
             ],
         ];
     }
+
+    /**
+     * @dataProvider orProvider
+     */
+    public function testOr($init, $other, int $expectedInt, string $expectedStr)
+    {
+        $bit = new Bit($init);
+        $bit = $bit->or($other);
+        $this->assertSame($expectedInt, $bit->asInt());
+        $this->assertSame($expectedStr, $bit->asStr());
+    }
+
+    public function orProvider()
+    {
+        return [
+            'Other is int' => [
+                'init' => '0110',
+                'other' => 10, // 1010
+                'expectedInt' => 14,
+                'expectedStr' => '1110',
+            ],
+            'Other is string' => [
+                'init' => '0110',
+                'other' => '1010',
+                'expectedInt' => 14,
+                'expectedStr' => '1110',
+            ],
+        ];
+    }
 }
