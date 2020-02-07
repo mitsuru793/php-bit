@@ -13,7 +13,10 @@ trait UnlimitedBitTrait
 
         $new = clone $this;
         foreach ($digits as $digit) {
-            $new->value |= (1 << $digit);
+            if ($digit < 1) {
+                throw new \InvalidArgumentException("Digit must be than 0, but $digit.");
+            }
+            $new->value |= (1 << ($digit - 1));
         }
         return $new;
     }
@@ -26,7 +29,10 @@ trait UnlimitedBitTrait
 
         $new = clone $this;
         foreach ($digits as $digit) {
-            $new->value &= ~(1 << $digit);
+            if ($digit < 1) {
+                throw new \InvalidArgumentException("Digit must be than 0, but $digit.");
+            }
+            $new->value &= ~(1 << ($digit - 1));
         }
         return $new;
     }

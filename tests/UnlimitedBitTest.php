@@ -64,25 +64,25 @@ final class UnlimitedBitTest extends TestBase
         return [
             'Argument as digit starts 0.' => [
                 'init' => 0,
-                'onDigits' => 0,
+                'onDigits' => 1,
                 'expectedInt' => 1,
                 'expectedStr' => '1',
             ],
             'Argument can be array.' => [
                 'init' => 0,
-                'onDigits' => [1, 3],
+                'onDigits' => [2, 4],
                 'expectedInt' => 10,
                 'expectedStr' => '1010',
             ],
             'Digit 0 remains.' => [
                 'init' => 1,
-                'onDigits' => 3,
+                'onDigits' => 4,
                 'expectedInt' => 9,
                 'expectedStr' => '1001',
             ],
             'Already on flags do not change.' => [
                 'init' => 9, // '1001'
-                'onDigits' => [0, 1],
+                'onDigits' => [1, 2],
                 'expectedInt' => 11,
                 'expectedStr' => '1011',
             ],
@@ -105,25 +105,25 @@ final class UnlimitedBitTest extends TestBase
         return [
             'Argument as digit starts 0.' => [
                 'init' => 1,
-                'offDigits' => 0,
+                'offDigits' => 1,
                 'expectedInt' => 0,
                 'expectedStr' => '0',
             ],
             'Argument can be array.' => [
                 'init' => 9, // '1001'
-                'offDigits' => [0, 3],
+                'offDigits' => [1, 4],
                 'expectedInt' => 0,
                 'expectedStr' => '0',
             ],
             'Digit 0 remains.' => [
                 'init' => 9, // '1001'
-                'offDigits' => 0,
+                'offDigits' => 1,
                 'expectedInt' => 8,
                 'expectedStr' => '1000',
             ],
             'Already on flags do not change.' => [
                 'init' => 9, // '1001'
-                'offDigits' => [0, 1],
+                'offDigits' => [1, 2],
                 'expectedInt' => 8,
                 'expectedStr' => '1000',
             ],
