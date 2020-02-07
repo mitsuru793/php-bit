@@ -5,7 +5,7 @@ namespace Php;
 
 use Helper\TestBase;
 
-final class BitTest extends TestBase
+final class UnlimitedBitTest extends TestBase
 {
     /**
      * @dataProvider constructProvider
