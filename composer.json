@@ -1,6 +1,14 @@
 {
     "name": "mitsuru793/bit",
     "description": "",
+    "keywords": ["bit"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mitsuru793",
+            "email": "mitsuru793@gmail.com"
+        }
+    ],
     "type": "library",
     "scripts": {
       "test": "phpunit --color=always",
