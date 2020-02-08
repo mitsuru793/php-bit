@@ -15,7 +15,7 @@ assert($bit->asStr() === '10');
 assert($bit->on(4)->off(2)->asStr() === '1000');
 ```
 
-Both of the followings implement interface 'Bit'.
+Both of the followings implement interface 'Bit'. Please see test codes and interface.
 
 * UnlimitedBit
 * LimitedBit
