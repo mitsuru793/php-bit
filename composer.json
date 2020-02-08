@@ -1,5 +1,5 @@
 {
-    "name": "mitsuru793/TODO",
+    "name": "mitsuru793/bit",
     "description": "",
     "type": "library",
     "scripts": {
@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Php\\": "src/"
+            "Mitsuru793\\Bit\\": "src/"
         }
     },
     "autoload-dev": {

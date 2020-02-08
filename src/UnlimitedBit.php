@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Php;
+namespace Mitsuru793\Bit;
 
 class UnlimitedBit implements Bit
 {

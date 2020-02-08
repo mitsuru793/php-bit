@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use Php\UnlimitedBit;
+use Mitsuru793\Bit\UnlimitedBit;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
