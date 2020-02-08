@@ -11,7 +11,7 @@ class UnlimitedBit implements Bit
     private int $value;
 
     /**
-     * @param int|string
+     * @param int|string $value
      */
     public function __construct($value = 0)
     {

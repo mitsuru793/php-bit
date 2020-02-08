@@ -23,7 +23,7 @@
     "autoload-dev": {
         "psr-4": {
             "Helper\\": "tests/Helper",
-            "Php\\": "tests/"
+            "Mitsuru793\\Bit\\": "tests/"
         }
     }
 }

@@ -21,9 +21,9 @@ class LimitedBit implements Bit
     private int $value;
 
     /**
-     * @param int|string
+     * @param int|string $value
      */
-    private function __construct(int $maxBit, $value = 0)
+    final private function __construct(int $maxBit, $value = 0)
     {
         $this->maxBit = $maxBit;
         $this->maxDigit = strlen(decbin($maxBit));
@@ -36,6 +36,7 @@ class LimitedBit implements Bit
     }
 
     /**
+     * @param int|string $value
      * @return static
      */
     public static function maxBit(int $maxBit, $value = 0)
@@ -44,6 +45,7 @@ class LimitedBit implements Bit
     }
 
     /**
+     * @param int|string $value
      * @return static
      */
     public static function maxDigit(int $maxDigit, $value = 0)

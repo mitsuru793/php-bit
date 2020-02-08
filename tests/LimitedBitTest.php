@@ -9,8 +9,9 @@ final class LimitedBitTest extends TestBase
 {
     /**
      * @dataProvider maxBitProvider
+     * @param string|int $init
      */
-    public function testConstruct(int $maxDigit, $init, int $expectedInt, string $expectedStr)
+    public function testConstruct(int $maxDigit, $init, int $expectedInt, string $expectedStr): void
     {
         $bit = LimitedBit::maxDigit($maxDigit, $init);
         $this->assertSame($expectedInt, $bit->asInt());
@@ -22,7 +23,10 @@ final class LimitedBitTest extends TestBase
         $this->assertSame($expectedStr, $bit->asStr());
     }
 
-    public function maxBitProvider()
+    /**
+     * @return array[]
+     */
+    public function maxBitProvider(): array
     {
         return [
             'Integer 0.' => [
@@ -67,8 +71,9 @@ final class LimitedBitTest extends TestBase
 
     /**
      * @dataProvider onProvider
+     * @param int|int[] $onDigits
      */
-    public function testOn(int $maxDigit, int $init, $onDigits, int $expectedInt, string $expectedStr)
+    public function testOn(int $maxDigit, int $init, $onDigits, int $expectedInt, string $expectedStr): void
     {
         $bit = LimitedBit::maxDigit($maxDigit, $init);
         $bit = $bit->on($onDigits);
@@ -76,7 +81,10 @@ final class LimitedBitTest extends TestBase
         $this->assertSame($expectedStr, $bit->asStr());
     }
 
-    public function onProvider()
+    /**
+     * @return array[]
+     */
+    public function onProvider(): array
     {
         return [
             'Argument as digit starts 0.' => [
@@ -120,8 +128,9 @@ final class LimitedBitTest extends TestBase
 
     /**
      * @dataProvider offProvider
+     * @param int|int[] $onDigits
      */
-    public function testOff(int $maxDigit, int $init, $onDigits, int $expectedInt, string $expectedStr)
+    public function testOff(int $maxDigit, int $init, $onDigits, int $expectedInt, string $expectedStr): void
     {
         $bit = LimitedBit::maxDigit($maxDigit, $init);
         $bit = $bit->off($onDigits);
@@ -129,7 +138,10 @@ final class LimitedBitTest extends TestBase
         $this->assertSame($expectedStr, $bit->asStr());
     }
 
-    public function offProvider()
+    /**
+     * @return array[]
+     */
+    public function offProvider(): array
     {
         return [
             'Argument as digit starts 0.' => [
@@ -173,8 +185,10 @@ final class LimitedBitTest extends TestBase
 
     /**
      * @dataProvider andProvider
+     * @param string|int $init
+     * @param string|int $other
      */
-    public function testAnd(int $maxDigit, $init, $other, int $expectedInt, string $expectedStr)
+    public function testAnd(int $maxDigit, $init, $other, int $expectedInt, string $expectedStr): void
     {
         $bit = LimitedBit::maxDigit($maxDigit, $init);
         $bit = $bit->and($other);
@@ -182,7 +196,10 @@ final class LimitedBitTest extends TestBase
         $this->assertSame($expectedStr, $bit->asStr());
     }
 
-    public function andProvider()
+    /**
+     * @return array[]
+     */
+    public function andProvider(): array
     {
         return [
             'Other is int.' => [
@@ -219,8 +236,10 @@ final class LimitedBitTest extends TestBase
 
     /**
      * @dataProvider orProvider
+     * @param string|int $init
+     * @param string|int $other
      */
-    public function testOr(int $maxDigit, $init, $other, int $expectedInt, string $expectedStr)
+    public function testOr(int $maxDigit, $init, $other, int $expectedInt, string $expectedStr): void
     {
         $bit = LimitedBit::maxDigit($maxDigit, $init);
         $bit = $bit->or($other);
@@ -228,7 +247,10 @@ final class LimitedBitTest extends TestBase
         $this->assertSame($expectedStr, $bit->asStr());
     }
 
-    public function orProvider()
+    /**
+     * @return array[]
+     */
+    public function orProvider(): array
     {
         return [
             'Other is int' => [

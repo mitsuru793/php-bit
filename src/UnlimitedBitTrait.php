@@ -46,7 +46,7 @@ trait UnlimitedBitTrait
     }
 
     /**
-     * @param int|string|static $other Not digit, but bit value. 5 is '101'
+     * @param int|string|Bit $other Not digit, but bit value. 5 is '101'
      * @return static
      */
     public function and($other)
@@ -63,7 +63,7 @@ trait UnlimitedBitTrait
     }
 
     /**
-     * @param int|string|static $other Not digit, but bit value. 5 is '101'
+     * @param int|string|Bit $other Not digit, but bit value. 5 is '101'
      * @return static
      */
     public function or($other)

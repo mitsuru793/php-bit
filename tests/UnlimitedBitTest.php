@@ -9,15 +9,19 @@ final class UnlimitedBitTest extends TestBase
 {
     /**
      * @dataProvider constructProvider
+     * @param int|string $init
      */
-    public function testConstruct($init, int $expectedInt, string $expectedStr)
+    public function testConstruct($init, int $expectedInt, string $expectedStr): void
     {
         $bit = new UnlimitedBit($init);
         $this->assertSame($expectedInt, $bit->asInt());
         $this->assertSame($expectedStr, $bit->asStr());
     }
 
-    public function constructProvider()
+    /**
+     * @return array[]
+     */
+    public function constructProvider(): array
     {
         return [
             'Integer 0.' => [
@@ -50,8 +54,9 @@ final class UnlimitedBitTest extends TestBase
 
     /**
      * @dataProvider onProvider
+     * @param int|int[] $onDigits
      */
-    public function testOn(int $init, $onDigits, int $expectedInt, string $expectedStr)
+    public function testOn(int $init, $onDigits, int $expectedInt, string $expectedStr): void
     {
         $bit = new UnlimitedBit($init);
         $bit = $bit->on($onDigits);
@@ -59,7 +64,10 @@ final class UnlimitedBitTest extends TestBase
         $this->assertSame($expectedStr, $bit->asStr());
     }
 
-    public function onProvider()
+    /**
+     * @return array[]
+     */
+    public function onProvider(): array
     {
         return [
             'Argument as digit starts 0.' => [
@@ -98,8 +106,9 @@ final class UnlimitedBitTest extends TestBase
 
     /**
      * @dataProvider offProvider
+     * @param int|int[] $onDigits
      */
-    public function testOff(int $init, $onDigits, int $expectedInt, string $expectedStr)
+    public function testOff(int $init, $onDigits, int $expectedInt, string $expectedStr): void
     {
         $bit = new UnlimitedBit($init);
         $bit = $bit->off($onDigits);
@@ -107,7 +116,10 @@ final class UnlimitedBitTest extends TestBase
         $this->assertSame($expectedStr, $bit->asStr());
     }
 
-    public function offProvider()
+    /**
+     * @return array[]
+     */
+    public function offProvider(): array
     {
         return [
             'Argument as digit starts 0.' => [
@@ -146,8 +158,9 @@ final class UnlimitedBitTest extends TestBase
 
     /**
      * @dataProvider andProvider
+     * @param int|string|Bit $other
      */
-    public function testAnd($init, $other, int $expectedInt, string $expectedStr)
+    public function testAnd(string $init, $other, int $expectedInt, string $expectedStr): void
     {
         $bit = new UnlimitedBit($init);
         $bit = $bit->and($other);
@@ -155,7 +168,10 @@ final class UnlimitedBitTest extends TestBase
         $this->assertSame($expectedStr, $bit->asStr());
     }
 
-    public function andProvider()
+    /**
+     * @return array[]
+     */
+    public function andProvider(): array
     {
         return [
             'Other is int.' => [
@@ -188,8 +204,9 @@ final class UnlimitedBitTest extends TestBase
 
     /**
      * @dataProvider orProvider
+     * @param int|string|Bit $other
      */
-    public function testOr($init, $other, int $expectedInt, string $expectedStr)
+    public function testOr(string $init, $other, int $expectedInt, string $expectedStr): void
     {
         $bit = new UnlimitedBit($init);
         $bit = $bit->or($other);
@@ -197,7 +214,10 @@ final class UnlimitedBitTest extends TestBase
         $this->assertSame($expectedStr, $bit->asStr());
     }
 
-    public function orProvider()
+    /**
+     * @return array[]
+     */
+    public function orProvider(): array
     {
         return [
             'Other is int' => [
