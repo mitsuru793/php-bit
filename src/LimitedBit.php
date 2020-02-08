@@ -68,7 +68,7 @@ class LimitedBit implements Bit
             $digits = [$digits];
         }
 
-        $digits = array_filter($digits, fn($digit) => $digit <= $this->maxDigit);
+        $digits = array_filter($digits, fn ($digit) => $digit <= $this->maxDigit);
         return $this->_on($digits);
     }
 
@@ -78,7 +78,7 @@ class LimitedBit implements Bit
             $digits = [$digits];
         }
 
-        $digits = array_filter($digits, fn($digit) => $digit <= $this->maxDigit);
+        $digits = array_filter($digits, fn ($digit) => $digit <= $this->maxDigit);
         return $this->_off($digits);
     }
 

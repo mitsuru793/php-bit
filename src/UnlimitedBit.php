@@ -31,4 +31,3 @@ class UnlimitedBit implements Bit
         return decbin($this->value);
     }
 }
-

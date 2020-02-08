@@ -17,4 +17,3 @@ assert($bit->on(4)->asStr() === '1010');
 assert($bit->asStr() === '10');
 
 assert($bit->on(4)->off(2)->asStr() === '1000');
-
