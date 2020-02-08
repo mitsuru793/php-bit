@@ -1,6 +1,5 @@
 parameters:
   level: max
-  memory-limit: 300M
   autoload_files:
   paths:
     - %rootDir%/../../../src
