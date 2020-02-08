@@ -5,6 +5,10 @@ namespace Php;
 
 trait UnlimitedBitTrait
 {
+    /**
+     * @param int|int[] $digits
+     * @return static
+     */
     public function on($digits)
     {
         if (is_int($digits)) {
@@ -21,6 +25,10 @@ trait UnlimitedBitTrait
         return $new;
     }
 
+    /**
+     * @param int|int[] $digits
+     * @return static
+     */
     public function off($digits)
     {
         if (is_int($digits)) {
@@ -38,6 +46,7 @@ trait UnlimitedBitTrait
     }
 
     /**
+     * @param int|string|static $other Not digit, but bit value. 5 is '101'
      * @return static
      */
     public function and($other)
@@ -54,6 +63,7 @@ trait UnlimitedBitTrait
     }
 
     /**
+     * @param int|string|static $other Not digit, but bit value. 5 is '101'
      * @return static
      */
     public function or($other)
