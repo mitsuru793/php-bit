@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mitsuru793/php-bit.svg?branch=master)](https://travis-ci.org/mitsuru793/php-bit)
+
 # PHP Bit
 
 ```php
