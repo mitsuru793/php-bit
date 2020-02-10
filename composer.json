@@ -13,6 +13,7 @@
     "scripts": {
       "test": "phpunit --color=always",
       "analyze": "phpstan analyze $(git diff --diff-filter=ACMR --name-only --find-renames=0% $(git merge-base origin/master HEAD))",
+      "lint": "php-cs-fixer fix . --dry-run --diff",
       "fix": "php-cs-fixer fix ."
     },
     "require": {
